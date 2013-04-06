@@ -23,9 +23,11 @@ class Project {
 	"ssp_totalEstimateHours" ,"dp_estimatedSizeOfEffort" ,"dp_teamsActualHoursToDate" ,
 	"dp_designPhaseEndEstimatedHours" ,"dp_approvedChangeRequestHours" ,"dp_totalEstimateHours" ,
 	"dp_reEstimatedBuildToRunCost" ,"eap_actualSizeOfEffort" ,"eap_ddiInsideTeamActualHours" ,
-	"eap_varianceHours" ,"eap_actualsToDesignGateCommitment"]
+	"eap_varianceHours" ,"eap_actualsToDesignGateCommitment","status"]
 
-
+	Status getStatus(){
+		Status.determineStatus(this?.subProjects?.status)
+	}
 
 	Integer getPip_estimatedSizeOfEffort(){
 		this?.subProjects?.preInitiatePhase?.estimatedSizeOfEffort?.sum() ?:0
@@ -94,10 +96,9 @@ class Project {
 
 	BigDecimal getEap_actualsToDesignGateCommitment (){
 		def teh= getDp_totalEstimateHours()
-		def ddsi= getEap_ddiInsideTeamActualHours()
 		BigDecimal  res = 0
-		if (teh) res = ddsi/teh
-		return new BigDecimal( res, 2 )
+		if (teh) res = getEap_ddiInsideTeamActualHours()/teh
+		return Math.round(res * 100) / 100
 	}
 
 }

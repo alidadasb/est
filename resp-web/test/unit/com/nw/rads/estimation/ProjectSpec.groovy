@@ -190,10 +190,12 @@ import com.nw.rads.estimation.phases.*
  		Project.get(100).ssp_totalEstimateHours == 20 		
  	}
 
+
  	def "When dp_estimatedSizeOfEffort  should return \$"(){
  		expect:  
  		Project.get(100).dp_estimatedSizeOfEffort == 3560
  	}
+
  	def "When dp_teamsActualHoursToDate  should return \$"(){
  		expect:  	
  		Project.get(100).dp_teamsActualHoursToDate == 550
@@ -203,41 +205,98 @@ import com.nw.rads.estimation.phases.*
  		expect:  	
  		Project.get(100).dp_designPhaseEndEstimatedHours == 800
  	}
+
  	def "When dp_approvedChangeRequestHours  should return \$"(){
  		expect:  
  		Project.get(100).dp_approvedChangeRequestHours == 1023
  	}
+
  	def "When dp_totalEstimateHours  should return \$"(){
  		expect: 
  		Project.get(100).dp_totalEstimateHours == 2373 
  	}
+
  	def "When dp_reEstimatedBuildToRunCost  should return \$"(){
  		expect: 
  		Project.get(100).dp_reEstimatedBuildToRunCost == 5700
  	}
 
 
-
  	def "When eap_actualSizeOfEffort  should return \$"(){
  		expect: 
  		Project.get(100).eap_actualSizeOfEffort == 6500 		
  	}
+
  	def "When eap_ddiInsideTeamActualHours  should return \$"(){
  		expect: 
  		Project.get(100).eap_ddiInsideTeamActualHours == 2500 		
  	}
+
  	def "When eap_varianceHours  should return \$"(){
  		expect: 
  		Project.get(100).eap_varianceHours == 127 		
  	}
  	def "When eap_actualsToDesignGateCommitment  should return \$"(){
  		expect: 
- 		Project.get(100).eap_actualsToDesignGateCommitment == 105 		
+ 		Project.get(100).eap_actualsToDesignGateCommitment == 1.05 		
  	}
 
- 	def "The status should return the consolidated status of all sub projects"() {
+ 	def "The status should return the consolidated status of all sub projects all are NOTSTARTED"() {
  		expect: 
- 		fail "not yet implemented"
+ 		Project.get(100).status == Status.NOTSTARTED
  	} 	
 
+ 	def "The status should return the consolidated status of all sub projects on is COMPLETED"() {
+ 		given:
+ 		def prj = Project.get(100)
+ 		def team 
+ 		
+ 		prj.subProjects.each {teamProject->
+ 			team = teamProject.preInitiatePhase
+ 			team.status = Status.COMPLETED
+ 			team.save(flush:true)
+
+ 			team = teamProject.solutionScopingPhase
+ 			team.status = Status.COMPLETED
+ 			team.save(flush:true)
+
+ 			team = teamProject.designPhase
+ 			team.status = Status.COMPLETED
+ 			team.save(flush:true)
+
+ 			team = teamProject.estimatesVsActualsPhase
+ 			team.status = Status.COMPLETED
+ 			team.save(flush:true)
+ 		}
+
+ 		expect: 
+ 		prj.status == Status.COMPLETED
+ 	} 	
+
+	def "The status should return the consolidated status of all sub projects on is COMPLETED except 1"() {
+ 		given:
+ 		def prj = Project.get(100)
+ 		def team 
+ 		
+ 		prj.subProjects.each {teamProject->
+ 			team = teamProject.preInitiatePhase
+ 			team.status = Status.COMPLETED
+ 			team.save(flush:true)
+
+ 			team = teamProject.solutionScopingPhase
+ 			team.status = Status.INPROGRESS
+ 			team.save(flush:true)
+
+ 			team = teamProject.designPhase
+ 			team.status = Status.COMPLETED
+ 			team.save(flush:true)
+
+ 			team = teamProject.estimatesVsActualsPhase
+ 			team.status = Status.COMPLETED
+ 			team.save(flush:true)
+ 		}
+
+ 		expect: 
+ 		prj.status == Status.INPROGRESS
+ 	} 
  }

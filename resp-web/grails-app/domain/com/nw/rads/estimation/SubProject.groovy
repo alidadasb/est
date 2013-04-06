@@ -9,10 +9,12 @@ class SubProject {
 	String businessScope
 
 
-	static hasOne = [preInitiatePhase:PreInitiatePhase,
-					solutionScopingPhase:SolutionScopingPhase,
-					designPhase:DesignPhase,
-					estimatesVsActualsPhase:EstimatesVsActuals]
+	static hasOne = [
+	preInitiatePhase:PreInitiatePhase,
+	solutionScopingPhase:SolutionScopingPhase,
+	designPhase:DesignPhase,
+	estimatesVsActualsPhase:EstimatesVsActuals
+	]
 
 	
 	static hasMany = [notes:Note,changeRequestLog:ChangeRequestLog,revisionLog: RevisionLog ]
@@ -30,5 +32,14 @@ class SubProject {
 
 	Integer approavedChangeRequests(){
 		this?.changeRequestLog?.changeRequestHours?.sum() ?:0
+	}
+
+	Status getStatus(){
+		def ls = []
+		ls << preInitiatePhase.status
+		ls << solutionScopingPhase.status
+		ls << designPhase.status
+		ls << estimatesVsActualsPhase.status
+		return Status.determineStatus(ls)
 	}
 }

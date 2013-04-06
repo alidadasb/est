@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Alis-MacBook-Pro-2.local" name="com.nw.rads.estimation.ProjectSpec" tests="21" time="6.891" timestamp="2013-04-06T00:36:51">
+  <properties />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="Verify sample project before tests running " time="0.633" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="When pip_estimatedSizeOfEffort  should return $" time="0.325" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="When pip_preInitiateInsideTeamHours  should return $" time="0.311" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="When pip_totalEstimateHours  should return $" time="0.311" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="When pip_estimatedBuildToRunCost  should return $" time="0.314" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="When ssp_estimatedSizeOfEffort  should return $" time="0.311" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="When ssp_ssPhaseEndEstimatedHours  should return $" time="0.306" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="When ssp_totalEstimateHours  should return $" time="0.313" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="When dp_estimatedSizeOfEffort  should return $" time="0.311" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="When dp_teamsActualHoursToDate  should return $" time="0.312" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="When dp_designPhaseEndEstimatedHours  should return $" time="0.311" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="When dp_approvedChangeRequestHours  should return $" time="0.305" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="When dp_totalEstimateHours  should return $" time="0.306" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="When dp_reEstimatedBuildToRunCost  should return $" time="0.307" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="When eap_actualSizeOfEffort  should return $" time="0.306" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="When eap_ddiInsideTeamActualHours  should return $" time="0.308" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="When eap_varianceHours  should return $" time="0.303" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="When eap_actualsToDesignGateCommitment  should return $" time="0.312" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="The status should return the consolidated status of all sub projects all are NOTSTARTED" time="0.31" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="The status should return the consolidated status of all sub projects on is COMPLETED" time="0.338" />
+  <testcase classname="com.nw.rads.estimation.ProjectSpec" name="The status should return the consolidated status of all sub projects on is COMPLETED except 1" time="0.335" />
+  <system-out><![CDATA[--Output from Verify sample project before tests running --
+--Output from When pip_estimatedSizeOfEffort  should return $--
+--Output from When pip_preInitiateInsideTeamHours  should return $--
+--Output from When pip_totalEstimateHours  should return $--
+--Output from When pip_estimatedBuildToRunCost  should return $--
+--Output from When ssp_estimatedSizeOfEffort  should return $--
+--Output from When ssp_ssPhaseEndEstimatedHours  should return $--
+--Output from When ssp_totalEstimateHours  should return $--
+--Output from When dp_estimatedSizeOfEffort  should return $--
+--Output from When dp_teamsActualHoursToDate  should return $--
+--Output from When dp_designPhaseEndEstimatedHours  should return $--
+--Output from When dp_approvedChangeRequestHours  should return $--
+--Output from When dp_totalEstimateHours  should return $--
+--Output from When dp_reEstimatedBuildToRunCost  should return $--
+--Output from When eap_actualSizeOfEffort  should return $--
+--Output from When eap_ddiInsideTeamActualHours  should return $--
+--Output from When eap_varianceHours  should return $--
+--Output from When eap_actualsToDesignGateCommitment  should return $--
+--Output from The status should return the consolidated status of all sub projects all are NOTSTARTED--
+--Output from The status should return the consolidated status of all sub projects on is COMPLETED--
+--Output from The status should return the consolidated status of all sub projects on is COMPLETED except 1--
+]]></system-out>
+  <system-err><![CDATA[--Output from Verify sample project before tests running --
+--Output from When pip_estimatedSizeOfEffort  should return $--
+--Output from When pip_preInitiateInsideTeamHours  should return $--
+--Output from When pip_totalEstimateHours  should return $--
+--Output from When pip_estimatedBuildToRunCost  should return $--
+--Output from When ssp_estimatedSizeOfEffort  should return $--
+--Output from When ssp_ssPhaseEndEstimatedHours  should return $--
+--Output from When ssp_totalEstimateHours  should return $--
+--Output from When dp_estimatedSizeOfEffort  should return $--
+--Output from When dp_teamsActualHoursToDate  should return $--
+--Output from When dp_designPhaseEndEstimatedHours  should return $--
+--Output from When dp_approvedChangeRequestHours  should return $--
+--Output from When dp_totalEstimateHours  should return $--
+--Output from When dp_reEstimatedBuildToRunCost  should return $--
+--Output from When eap_actualSizeOfEffort  should return $--
+--Output from When eap_ddiInsideTeamActualHours  should return $--
+--Output from When eap_varianceHours  should return $--
+--Output from When eap_actualsToDesignGateCommitment  should return $--
+--Output from The status should return the consolidated status of all sub projects all are NOTSTARTED--
+--Output from The status should return the consolidated status of all sub projects on is COMPLETED--
+--Output from The status should return the consolidated status of all sub projects on is COMPLETED except 1--
+]]></system-err>
+</testsuite>
